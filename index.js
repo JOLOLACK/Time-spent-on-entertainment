@@ -1,11 +1,12 @@
-const API_KEY = 'YOUR API KEY'
+const API_KEY = 'api_key=ccce8287f51df54af80b83283695c531'
 const url = 'https://api.themoviedb.org/3';
 const API_URL = url + '/discover/movie?sort_by=popularity.desc&'
 const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'YOUR AUTHORIZATION FROM TMDB API WEBSITE'
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2NlODI4N2Y1MWRmNTRhZjgwYjgzMjgzNjk1YzUzMSIsIm5iZiI6MTcyMTQ5NzgzNy40MDI4OTQsInN1YiI6IjY2OWJmNmU0Y2U5NjhjMGRmYjRiOWQ0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UBNY43dy5mjd_a-DEiVDxBfKjegegkHuD314zvZAUik'
+
   }
 };
 const accountId = 'YOUR TMDB ACCOUNT'
