@@ -1,0 +1,238 @@
+body {
+    font-family: Arial, sans-serif;
+    transition: 1s;
+    background-color: #000000;
+    min-height: 100vh;
+    font-size: 1.5rem;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://image.tmdb.org/t/p/w500/9faGSFi5jam6pDWGNd0p8JcJgXQ.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    opacity: 0.3;
+    transition: 1s;
+    z-index: -1;
+}
+
+.counter {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-number {
+    display: flex;
+    gap: 50px;
+}
+
+h1, h3 {
+    margin: 5px;
+    padding: 0;
+    color: white;
+}
+
+.counter div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.detail-name {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+}
+
+/* Button Style */
+button {
+    background-color: #51C2BF;;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-container {
+    position: relative;
+    width: 800px;
+    margin: 50px auto;
+}
+
+input[type="text"] {
+    padding: 12px 20px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-bottom-color: #51C2BF;
+    
+    outline: none;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+}
+
+.dropdown-content .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-content .details {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.dropdown-content .details h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.dropdown-content .details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.dropdown-content .poster {
+    width: 60px;
+    height: 90px;
+    flex-shrink: 0;
+}
+
+.dropdown-content .poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-card {
+    flex: 1 1 300px;
+    max-width: 300px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    pointer-events: painted;
+    cursor: pointer;
+    position: relative;
+}
+
+.poster {
+    position: relative;
+    height: 100%;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.credits {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1vh 2vh;
+    color:white;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.credits:hover {
+    color: #51C2BF;
+}
+
+a{
+    text-decoration: none;
+    color: #51C2BF;
+}
+
+.credits-face {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.svg {
+    width: 15%;
+}

@@ -1,0 +1,161 @@
+/**
+ document.addEventListener('DOMContentLoaded', () => {
+   const containerDiv = document.getElementById('container');
+   
+   const inputField = document.getElementById('inputfield');
+   
+ inputField.addEventListener('keypress', (event) => {
+       if (event.key === 'Enter') {
+           let textWithPercent20 = inputField.value.replace(/ /g, "%20");
+           let urlQuery = `/search/multi?query=${textWithPercent20}`;
+           search(urlQuery);
+       }
+   });
+   
+   function search(query) {
+       fetch(url + query, options)
+           .then(res => res.json())
+           .then(data => HtmlDisplay(data.results))
+           .catch(err => console.error('error:' + err));
+   }
+   
+   function HtmlDisplay(data) {
+       containerDiv.innerHTML = ''; // Clear previous results
+       for (let i = 0; i < data.length; i++) {
+           let element = data[i];
+           console.log(element);
+   
+           let HtmlElement = document.createElement('div');
+           HtmlElement.classList.add('movie-card');
+           
+           
+           if (element.poster_path) {
+             let nameMedia = element.title
+             let releaseDate = element.release_date
+ 
+             if (element.media_type =="tv"){
+               nameMedia = element.original_name
+               console.log(nameMedia)
+ 
+               releaseDate = element.first_air_date
+             
+             }
+               HtmlElement.innerHTML = `
+                   <div class="poster">
+                       <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt="${nameMedia}">
+                   </div>
+                   <div class="details">
+                       <h2>${nameMedia}</h2>
+                       <p><strong>Release Date:</strong> ${releaseDate}</p>
+                       <p><strong>IDs:</strong> ${element.id}</p>
+                       <p><strong>Popularity:</strong> ${element.popularity}</p>
+                       <p><strong>Vote Average:</strong> ${element.vote_average}</p>
+                   </div>`;
+   
+               containerDiv.appendChild(HtmlElement);
+   
+               HtmlElement.addEventListener('click', () => {
+                   console.log(element.id);
+               });
+           }
+       }
+   }
+ });
+ * 
+ * 
+ */
+
+
+/**
+ *
+const containerDiv = document.getElementById('container')
+const mediaCard = document.getElementById('movie-card')
+
+function search(query){
+    fetch(url + query, options)
+    .then(res => res.json())
+    .then(data => HtmlDisplay(data.results))
+    .catch(err => console.error('error:' + err));
+  
+    const inputField = document.getElementById('inputfield')
+    
+    inputField.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+                
+                let textWithPercent20 = inputField.value.replace(/ /g, "%20"); // yeah i dont know this one mate
+                let urlQuery = `/search/movie?query=${textWithPercent20}`
+                search(urlQuery)
+        }
+    
+        
+    
+    
+    })
+    
+    function HtmlDisplay(data){
+        for (let i = 0; i < data.length; i++) {
+            let element = data[i];
+            console.log(element)
+            
+            let HtmlElement = `
+              <div class="movie-card" id="movie-card">
+                  <div class="poster">
+                      <img src="https://image.tmdb.org/t/p/w500${element.poster_path}" alt=${element.title}>
+                  </div>
+                  <div class="details">
+                      <h2>${element.title}</h2>
+                      <p><strong>Release Date:</strong>${element.release_date}</p>
+                      <p><strong>IDs:</strong>${element.id}</p>
+                      <p><strong>Popularity:</strong>${element.popularity}</p>
+                      <p><strong>Vote Average:</strong>${element.vote_average}</p>
+                      
+                  </div>
+              </div>`
+    
+              console.log(HtmlElement)
+              if(element.poster_path != null){
+                containerDiv.innerHTML += HtmlElement
+                
+              }
+              mediaCard.addEventListener('click', ()=>{
+                console.log(element.id)
+              })
+            
+    }} 
+    function runtime(MovieID){
+    
+    
+    }
+}
+*/
+let mediaType = "tv"
+    
+    for (let i = 0; i < 2; i++) {
+
+      let resultsMovies = await accountIdData(1,mediaType)
+      console.log(resultsMovies)
+  
+      for (let pages = 1; pages < resultsMovies.total_pages; pages++) {
+        resultsMovies = await accountIdData(pages, mediaType)
+  
+        for (let index = 0; index < resultsMovies.results.length; index++) {
+          const element = resultsMovies.results[index];
+          await timerCalculator(mediaType, element.id)
+
+          let nameMedia = element.title
+          let releaseDate = element.release_date
+   
+            if (element.media_type =="tv"){
+                nameMedia = element.name
+                releaseDate = element.first_air_date
+               
+            }
+          saveDisplay(element.poster_path, element.id, nameMedia)
+
+          
+          
+        }    console.log(resultsMovies)
+      }
+      mediaType = "movies"
+
+    }
