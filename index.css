@@ -2,8 +2,9 @@ body {
     font-family: Arial, sans-serif;
     transition: 1s;
     background-color: #000000;
-    min-height: 100vh;
+
     font-size: 1.5rem;
+    box-sizing: border-box;
 }
 
 .main {
@@ -58,7 +59,7 @@ h1, h3 {
 
 /* Button Style */
 button {
-    background-color: #51C2BF;;
+    background-color: #51C2BF;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -97,7 +98,6 @@ input[type="text"] {
 
 input[type="text"]:focus {
     border-bottom-color: #51C2BF;
-    
     outline: none;
 }
 
@@ -202,7 +202,7 @@ input[type="text"]:focus {
     top: 0;
     right: 0;
     margin: 1vh 2vh;
-    color:white;
+    color: white;
     cursor: pointer;
     z-index: 20;
 }
@@ -211,7 +211,7 @@ input[type="text"]:focus {
     color: #51C2BF;
 }
 
-a{
+a {
     text-decoration: none;
     color: #51C2BF;
 }
@@ -236,6 +236,8 @@ a{
 .svg {
     width: 15%;
 }
+
+/* Media Queries for Mobile Compatibility */
 @media (max-width: 768px) {
     body {
         font-size: 1rem;
@@ -262,15 +264,19 @@ a{
         padding: 10px 20px;
         font-size: 14px;
     }
+    .container{
+        gap: 10px;
+        padding: 0;
+
+    }
 
     .movie-card {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 5px;
+        flex: 1 1 50%;
+        max-width: 30%;
+        margin: 0px;
     }
 
     .svg {
         width: 30%;
     }
 }
-
