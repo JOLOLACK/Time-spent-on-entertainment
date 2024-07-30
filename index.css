@@ -236,3 +236,41 @@ a{
 .svg {
     width: 15%;
 }
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .search-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .detail-number {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-name {
+        gap: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .movie-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin: 5px;
+    }
+
+    .svg {
+        width: 30%;
+    }
+}
+
