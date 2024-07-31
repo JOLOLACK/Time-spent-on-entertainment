@@ -3,7 +3,7 @@ body {
     transition: 1s;
     background-color: #000000;
 
-    font-size: 1.5rem;
+    font-size: 1rem;
     box-sizing: border-box;
 }
 
@@ -25,14 +25,22 @@ body {
     background-position: center;
     filter: blur(8px);
     opacity: 0.3;
-    transition: 1s;
+    transition:  0.5s;
     z-index: -1;
 }
 
 .counter {
-    display: flex;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
     flex-direction: column;
 }
+
+.counter.show {
+    display: flex;
+    opacity: 1;
+}
+
 
 .detail-number {
     display: flex;
@@ -58,25 +66,7 @@ h1, h3 {
 }
 
 /* Button Style */
-button {
-    background-color: #51C2BF;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
 
-button:hover {
-    background-color: #45a049;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
 
 .search-container {
     position: relative;
@@ -96,12 +86,17 @@ input[type="text"] {
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
+#accountIdInput{
+    width: 30%
+}
 input[type="text"]:focus {
     border-bottom-color: #51C2BF;
     outline: none;
 }
-
+h4{
+    margin: 0;
+    padding: 0;
+}
 .dropdown-content {
     position: absolute;
     top: 100%;
@@ -199,10 +194,8 @@ input[type="text"]:focus {
 }
 
 .credits {
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 1vh 2vh;
+    
+    margin: 0.1vh;
     color: white;
     cursor: pointer;
     z-index: 20;
@@ -211,13 +204,40 @@ input[type="text"]:focus {
 .credits:hover {
     color: #51C2BF;
 }
+.header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+button {
+    background-color: #51C2BF;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 a {
     text-decoration: none;
     color: #51C2BF;
 }
-
-.credits-face {
+.account-face-face{
+    width: 40%;
+    height: 100%;
+}
+.credits-face,.account-face-face {
+   
     display: none;
     position: fixed;
     top: 0;
