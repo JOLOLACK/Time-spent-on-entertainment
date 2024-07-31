@@ -291,76 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('daysTime').innerText = timeResult.days
     document.getElementById('hoursTime').innerText = timeResult.hours
     document.getElementById('minutesTime').innerText = timeResult.minutes
-
     
-    /*
-    html elements below:
-    <div class="detail-number">
-                <h1 id="dayMedia">days: 0</h1>
-                <h1 id="hourMedia">hours: 0</h1>
-                <h1 id="minutesMedia">minutes: 0</h1>
-  
-                
-    </div>
-    
-    let minute = 0
-    let hour = 0
-    let days = 0
-    if (buttonAccountClick){
-      the docs
-    }
-    else{
-      
-      
-      let intervalId = setInterval(function(){
-        
-        if (timeResult.days != days || timeResult.minutes != minute || timeResult.hours != hour) {
-            console.log('is this working?')
-            console.log(timeResult)
-  
-          
-            if(minute != timeResult.minutes){
-              minute++
-              minutesMediaEL.innerText = minute
-            }
-            if (hour !=timeResult.hours){
-              hour++
-              hourMediaEL.innerText = hour
-            }
-            if(days != timeResult.days){
-              days++
-              dayMediaEL.innerText = days
-            }
-            
-            
-          }
-      },10)
-      
-    }
-    */
-
-
-    /*
-    counterTime.innerHTML = `
-        <div class="detail-number">
-          <h1 id="daysTime"> ${timeResult.days}:</h1>
-          <h1 id="hoursTime"> ${timeResult.hours}:</h1>
-          <h1 id="minutesTime"> ${timeResult.minutes}:</h1>
-        </div>
-        
-        <div class="detail-name">
-          <h3>Days</h3>
-          <h3>Hours</h3>
-          <h3>Minutes</h3>
-        </div>
-    
-        <div class="detail-number">s
-            <h1 id="minutesMedia">0</h1>
-        </div>
-        ` 
-    
-    */
-
   }
   function convertHourDaysMinutes(totalHours) {
     const days = Math.floor(totalHours / 24);
