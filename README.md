@@ -4,3 +4,4 @@ This project speaks to my masochistic side, trying to face the many hours that I
 -- I even added a button to calculate all of the movies and TV shows I have seen in my life. \
 -- if you want to fork the project you only need to edit the API_KEY on the first line and put in your TMDB authorization from the website.
 live Demo: https://timetv.netlify.app/
+-- TMDB API: https://developer.themoviedb.org/reference/account-details
