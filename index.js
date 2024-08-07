@@ -11,7 +11,7 @@ const options = {
   }
 };
 
-//const accountId = '21393966'
+const accountId = '21393966'
 
 let totalHour = 0
 let isUpdatingBackground = false;
@@ -175,25 +175,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  async function accountIdData(page, mediaType,userId) {
+  async function Data(page, mediaType,userId) {
     console.log(`/account/${userId}/rated/${mediaType}?page=${page}&sort_by=created_at.asc`)
     return await fetchDataApi(`/account/${userId}/rated/${mediaType}?page=${page}&sort_by=created_at.asc`)
 
   }
 
   accountCalcBtn.addEventListener('click', async () => {
-    console.log(accountIdINP.value)
-    if (accountIdINP.value) {
+    console.log(accountId)
+    if (INP.value) {
 
       buttonAccountClick = true
       let mediaType = "tv"
 
       for (let i = 0; i < 2; i++) {
 
-        let resultsMovies = await accountIdData(1, mediaType, accountIdINP.value)
+        let resultsMovies = await Data(1, mediaType, INP.value)
 
         for (let pages = 1; pages <= resultsMovies.total_pages; pages++) {
-          resultsMovies = await accountIdData(pages, mediaType, accountIdINP.value)
+          resultsMovies = await Data(pages, mediaType, INP.value)
 
           for (let index = 0; index < resultsMovies.results.length; index++) {
             const element = resultsMovies.results[index];
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayNoneAndShow(creditsEl)
 
   })
-  accountIdUser.addEventListener('click', () => {
+  User.addEventListener('click', () => {
     console.log('hello');
     let creditsEl = document.querySelector('.account-face-face');
     displayNoneAndShow(creditsEl)
