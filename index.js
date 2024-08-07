@@ -183,17 +183,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   accountCalcBtn.addEventListener('click', async () => {
     console.log(accountId)
-    if (INP.value) {
+    if (accountId) {
 
       buttonAccountClick = true
       let mediaType = "tv"
 
       for (let i = 0; i < 2; i++) {
 
-        let resultsMovies = await Data(1, mediaType, INP.value)
+        let resultsMovies = await Data(1, mediaType, accountId)
 
         for (let pages = 1; pages <= resultsMovies.total_pages; pages++) {
-          resultsMovies = await Data(pages, mediaType, INP.value)
+          resultsMovies = await Data(pages, mediaType, accountId)
 
           for (let index = 0; index < resultsMovies.results.length; index++) {
             const element = resultsMovies.results[index];
